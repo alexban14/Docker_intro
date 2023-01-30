@@ -7,6 +7,8 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=mongoadmin
       - MONGO_INITDB_ROOT_PASSWORD=secret
+    volumes: 
+      - db-data:/var/lib/mysql/data # named docker volume
   mongo-express:
     image: mongo-express
     ports:
@@ -15,4 +17,5 @@ services:
       - ME_COFIG_MONGODB_ADMINUSERNAME=mongoadmin
       - ME_COFIG_MONGODB_ADMINPASSWORD=secret
       - ME_COFIG_MONGODB_SERVER=mongodb
-      
+volumes:
+  db-data

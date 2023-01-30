@@ -62,3 +62,7 @@ docker build -t yelp_camp:1.0 .
 docker run yelp_camp:1.0
 
 docker rmi <- id -> => delete an image
+
+## Docker volumes
+
+1) Host volumes => docker run -v /home/mount/data:/var/lib/mysql/data
