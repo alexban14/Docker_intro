@@ -7,17 +7,25 @@ docker image ls
 
 Docker run hello-world => run the app on any machine that has docker
 
-## Push image on DockerHub, pull it on antoher maschine and run it there
+## Building an image
+
+docker build -t dockerized-48 . => run it in the application working dir where the dockerfile
+
+## Push image on DockerHub, pull it on another machine and run it there
 
 docker pull codewithmosh/hello-docker
+docker rmi <image_id> => deletes an images
+
+docker inspect <image_id> => inspect a container
 
 docker run ubuntu ( image locally ? run it : pull it from D.Hub )
 docker run <- container id -> => creates a new container for that
 docker start <- id -> => strats that container
 docker run -d => runs container in detached mode
 docker run -p 6000:6379 => creates a binding between the machines port and containers port
+docker port <container_id> => tells you the port the container uses
 
-docker ps -a => list all running processes, runnning or not
+docker ps -a => list all running processes, running or not
 
 docker stop <- id -> => stops an running container
 
@@ -29,10 +37,18 @@ when installing a package run => apt update => apt install x => apt remove nano
 Redirecting ( changing the source of the input / output )
 cat file1.txt file2.txt > combined.txt => combines 2 files into another ( > redirecton )
 
-## Troubleshooting docker
+## Remove containers
+
+docker container prune => remove all stopped containers
+docker rm <container_id> => remove one container
+
+## Actions inside containers
 
 docker logs <- container id / name>
 docker exec -it <- id -> /bin/bash
+
+docker exec -it dbc710ceac9d ps -aux => lists al processes running inside a container
+docker exec -it dbc710ceac9d sh => run a shell inside the specified container
 
 ## Isolated Docker Nerwork
 
