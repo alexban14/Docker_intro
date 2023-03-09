@@ -33,3 +33,11 @@ docker run --name db -e MYSQL_ROOT_PASSWORD=somewordpress -e MYSQL_PASSWORD=word
 docker compose up -d => in the dir of the compose.yaml file
 
 docker compose down => stops and removes any containers mentioned in the compose file
+
+## Laravel docker (Laravel sail package)
+
+- php artisan sail:install => provides you a docker.compose.yaml file with all the needed configs
+- wsl --install -d Ubuntu (first you need to have a linux distro installed via WSL)
+- wsl -s Ubuntu (sets the default distro)
+- wsl
+- bash ./vendor/bin/sail up
