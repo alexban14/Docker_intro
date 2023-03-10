@@ -40,4 +40,17 @@ docker compose down => stops and removes any containers mentioned in the compose
 - wsl --install -d Ubuntu (first you need to have a linux distro installed via WSL)
 - wsl -s Ubuntu (sets the default distro)
 - wsl
-- bash ./vendor/bin/sail up
+- ./vendor/bin/sail up -d
+
+## connection to the sail mysql conatiner
+
+- you must configure the .env file with the following fields:
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=shared_docs
+DB_USERNAME=root
+DB_PASSWORD=password
+
+- run the sail build command
+- ./vendor/bin/sail mysql -p'password-from-env'
