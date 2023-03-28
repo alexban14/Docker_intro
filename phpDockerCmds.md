@@ -54,3 +54,14 @@ DB_PASSWORD=password
 
 - run the sail build command
 - ./vendor/bin/sail mysql -p'password-from-env'
+
+## connecting to a remote repository via ssh (For Debian, Ubuntu, Linux Mint, and other Debian-based distributions)
+
+- sudo apt update && sudo apt install openssh-client
+- $ ps -auxc | grep ssh-agent (to see if SSH agent is running)
+- eval $(ssh-agent) (to start the agent)
+- ssh-keygen -t ed25519 -b 4096 -C "{username@emaildomain.com}" -f {ssh-key-name} (Generate a SSH key pair)
+- ssh-add ~/{ssh-key-name} (add the private key to the ssh agent)
+
+- if you have trouble adding the ssh-key run the following command, that sets the SSH_AUTH_SOCK environment variable =>
+- export SSH_AUTH_SOCK=$(find /tmp -uid $(id -u) -name "agent.*" 2> /dev/null | head -n 1)
