@@ -1,6 +1,6 @@
 # to preapear the app for deployment we tell docker to build the application
 
-docker build -t hello-docker
+docker build -t hello-docker .
 
 List docker images on the machine
 docker image ls
